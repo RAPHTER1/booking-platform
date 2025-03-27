@@ -1,0 +1,28 @@
+services:
+  auth-api:
+    build: ./auth-api
+    container_name: auth-api
+    ports:
+      - "3001:3001"
+
+  admin-api:
+    build: ./admin-api
+    container_name: admin-api
+    ports:
+      - "3002:3002"
+
+  public-api:
+    build: ./public-api
+    container_name: public-api
+    ports:
+      - "3003:3003"
+
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - auth-api
+      - admin-api
+      - public-api
