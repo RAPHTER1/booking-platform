@@ -5,8 +5,7 @@ const app = express();
 
 app.use('/api/auth', createProxyMiddleware({
   target: 'http://auth-api:3001',
-  changeOrigin: true,
-  pathRewrite: { '^/api/auth': '' }
+  changeOrigin: true
 }));
 
 app.use('/api/admin', createProxyMiddleware({

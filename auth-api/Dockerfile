@@ -13,6 +13,7 @@ RUN pnpm install --frozen-lockfile
 
 # Copy source code
 COPY src/ src/
+COPY .env .env
 
 # Expose the port
 EXPOSE 3001
