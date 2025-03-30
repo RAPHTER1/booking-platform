@@ -4,6 +4,15 @@ services:
     container_name: auth-api
     ports:
       - "3001:3001"
+    environment:
+      - JWT_SECRET=jIu65hoQuThMbUB9jC1dhVVEnS5GMSdkJQXaW7pRKCoCSDb10bfnsUjjHY5BbGtw
+      - NODE_ENV=production
+      - PORT=3001
+      - DB_HOST=booking-db
+      - DB_USER=booking_admin
+      - DB_PASSWORD=securepassword
+      - DB_NAME=booking_db
+
 
   admin-api:
     build: ./admin-api
