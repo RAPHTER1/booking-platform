@@ -104,3 +104,88 @@ Dossier	À quoi ça sert concrètement ?
 📂 middlewares/	Traitement global réutilisable (authentification JWT, gestion erreur, limite essais, etc.)
 📂 utils/	Fonctions utilitaires réutilisables partout (connexion DB, gestion erreurs custom, emails, etc.)
 📂 config/	Gestion centralisée des variables d'environnement
+
+
+Ok, allons-y de façon très concrète. Je te propose de **commencer par le README minimal** à la racine de ton projet (_booking-platform/_), puis ensuite on fera le fichier de doc détaillée pour l’Auth API (_docs/auth-api.md_).  
+
+Voici le **plan** que je suggère :
+
+---
+
+# 1. **Créer le README minimal à la racine**  
+- **Nom du projet** + brève intro  
+- **Microservices existants** (Auth API, Admin API, Public API)  
+- **Démarrage rapide** (Docker Compose)  
+- **Lien vers la doc détaillée** (dans `docs/`)
+
+# 2. **Créer la doc détaillée de l’Auth API** (_docs/auth-api.md_)  
+- **Introduction** et but de l’API  
+- **Installation & prérequis** (Node, Docker, .env)  
+- **Architecture / Structure de fichiers** (controllers, models, routes...)  
+- **Variables d’environnement** (JWT_SECRET, DB_HOST, etc.)  
+- **Endpoints** (login, verify-token) + exemples Postman  
+- **Validation des inputs** (Zod)  
+- **Logs (Morgan + Winston)**  
+- **Gestion des erreurs** (middleware errorHandler)  
+- **Roadmap / évolutions futures** (refresh token, etc.)  
+
+---
+
+## On procède étape par étape :
+
+1. **Je te propose** le contenu du **README.md** racine.  
+2. **Ensuite**, on rédigera **auth-api.md** dans un deuxième temps.
+
+### Let’s go !  
+
+---
+
+## 1) **README minimal à la racine : _booking-platform/README.md_**
+
+```md
+# Booking Platform
+
+Bienvenue sur **Booking Platform**, un projet permettant de gérer la réservation (booking) d’artistes.  
+Ce dépôt contient l’infrastructure Docker ainsi que plusieurs microservices :
+
+- **Auth API** (authentification JWT, gestion des tokens)
+- **Admin API** (CRUD artistes, bookings… _à venir_)
+- **Public API** (routes publiques pour consulter les artistes… _à venir_)
+
+## Démarrage rapide
+
+1. **Cloner** ce repo :  
+   ```bash
+   git clone https://github.com/tonuser/booking-platform.git
+   cd booking-platform
+   ```
+2. **Lancer Docker Compose** :  
+   ```bash
+   docker compose up --build
+   ```
+3. **Consulter** l’Auth API sur [http://localhost:3001](http://localhost:3001) (ou via la Gateway : [http://localhost:3000/api/auth](http://localhost:3000/api/auth))  
+
+> **Note** : Pense à configurer tes variables d’environnement (JWT_SECRET, DB_HOST…) dans le `docker-compose.yml` ou dans un `.env`.
+
+## Documentation
+
+La documentation détaillée de chaque microservice se trouve dans le dossier [`docs/`](./docs).  
+
+- [**Auth API**](./docs/auth-api.md) : présentation, endpoints, logs, etc.  
+- _Prochainement_ : Admin API, Public API.
+
+## Licence
+
+*(Si tu as une licence, indique-la ici. Sinon supprime.)*
+
+---
+
+```
+
+> **Remarque** : Ajuste le lien Git, le nom du repo, etc., selon ta configuration.
+
+---
+
+## 2) **Ensuite** : Doc détaillée de l’Auth API, dans `docs/auth-api.md`
+
+On la fera dans le message suivant. Ça te va ?

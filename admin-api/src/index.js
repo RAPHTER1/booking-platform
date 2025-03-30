@@ -1,13 +1,21 @@
-import express from 'express';
+import app from './app.js';
+import dotenv from 'dotenv';
 
-const app = express();
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Hello from Admin API');
-})
+if (process.env.NODE.ENV !== 'production') {
+  dotenv.config();
+}
 
 const PORT = process.env.PORT || 3002;
-app.listen(PORT, () => {
-  console.log(`Admin API running on port ${PORT}`);
-});
+
+async function startServer() {
+  try {
+    app.listen(PORT, () => {
+      console.log(`Admin API is running on port ${PORT}`)
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+   }
+}
+
+startServer();
